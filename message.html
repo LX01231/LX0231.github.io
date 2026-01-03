@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言互动 - 平舆县</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/page.css">
+    <style>
+        /* 留言页专属样式 */
+        .message-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .message-title {
+            font-size: 32px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        .message-subtitle {
+            font-size: 16px;
+            color: var(--light-text);
+        }
+        .message-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--gap);
+        }
+        .message-form-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        .message-list-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+        }
+        .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            min-height: 150px;
+            resize: vertical;
+        }
+        .form-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form-btn:hover {
+            background-color: #734a20;
+        }
+        .message-list {
+            margin-top: 20px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .message-item {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .message-item:last-child {
+            border-bottom: none;
+        }
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .message-username {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        .message-time {
+            font-size: 12px;
+            color: var(--light-text);
+        }
+        .message-content {
+            font-size: 14px;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .message-delete {
+            color: #ff4d4f;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .empty-message {
+            text-align: center;
+            padding: 50px 0;
+            color: var(--light-text);
+        }
+        .success-toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #52c41a;
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 9999;
+        }
+        .success-toast.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        @media (max-width: 767px) {
+            .message-container {
+                grid-template-columns: 1fr;
+            }
+            .message-form-card, .message-list-card {
+                padding: 20px;
+            }
+            .message-list {
+                max-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">平舆县 - 白芝麻之乡</div>
+                <button class="menu-btn">☰</button>
+                <ul class="nav-list">
+                    <li class="nav-list">
+                    <li class="nav-item"><a href="index.html">首页</a></li>
+                    <li class="nav-item"><a href="scenery.html">家乡风光</a></li>
+                    <li class="nav-item"><a href="food.html">家乡美食</a></li>
+                    <li class="nav-item"><a href="specialty.html">家乡特产</a></li>
+                    <li class="nav-item"><a href="intangible.html">非遗文化</a></li>
+                    <li class="nav-item"><a href="message.html" class="active">留言互动</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="main">
+        <div class="container">
+            <section class="message-header">
+                <h1 class="message-title">留言互动 - 为家乡寄语</h1>
+                <p class="message-subtitle">留下您的足迹与祝福，一起为美丽的平舆点赞</p>
+            </section>
+
+            <div class="message-container">
+                <div class="message-form-card">
+                    <h3 style="color: var(--secondary-color); margin-bottom:20px;">我要留言</h3>
+                    <form id="message-form">
+                        <div class="form-group">
+                            <label class="form-label">您的昵称</label>
+                            <input type="text" class="form-input" id="username" placeholder="请输入您的昵称" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">留言内容</label>
+                            <textarea class="form-textarea" id="msg-content" placeholder="请写下您想对平舆说的话..." required></textarea>
+                        </div>
+                        <button type="submit" class="form-btn">提交留言</button>
+                    </form>
+                </div>
+                <div class="message-list-card">
+                    <h3 style="color: var(--secondary-color); margin-bottom:20px;">留言列表</h3>
+                    <div class="message-list" id="message-list">
+                        <div class="empty-message">暂无留言，快来抢沙发吧~</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-contact">
+              <p>联系方式：电话：18288889999</p>
+                <p>邮箱：pingyu_home@example.com</p>
+                <p>地址：河南省驻马店市平舆县</p>
+                <p>官方资讯：<a href="https://www.pingyu.gov.cn/" target="_blank" title="打开平舆县人民政府官网">平舆县人民政府官网</a></p>
+            </div>
+            <div class="footer-copyright">
+                © 2025 我的家乡 - 平舆县 版权所有 | 设计者：24030232034李旭
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top">↑</div>
+    <!-- 成功提示弹窗 -->
+    <div class="success-toast" id="toast">留言提交成功！</div>
+
+    <!-- 引入JS -->
+    <script src="js/common.js"></script>
+    <script src="js/message.js"></script>
+</body>
+</html>

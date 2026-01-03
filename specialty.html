@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家乡特产 - 平舆县</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/page.css">
+    <style>
+        /* 特产页专属样式 */
+        .specialty-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .specialty-title {
+            font-size: 32px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        .specialty-subtitle {
+            font-size: 16px;
+            color: var(--light-text);
+        }
+        .specialty-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--gap);
+        }
+        .specialty-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        .specialty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .specialty-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .specialty-info {
+            padding: 20px;
+        }
+        .specialty-name {
+            font-size: 22px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        .specialty-rating {
+            margin-bottom: 15px;
+            color: #ffc107;
+            font-size: 18px;
+        }
+        .specialty-desc {
+            font-size: 14px;
+            color: var(--light-text);
+            line-height: 1.6;
+            text-align: justify;
+        }
+        @media (max-width: 767px) {
+            .specialty-list {
+                grid-template-columns: 1fr;
+            }
+            .specialty-img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">平舆县 - 白芝麻之乡</div>
+                <button class="menu-btn">☰</button>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html">首页</a></li>
+                    <li class="nav-item"><a href="scenery.html">家乡风光</a></li>
+                    <li class="nav-item"><a href="food.html">家乡美食</a></li>
+                    <li class="nav-item"><a href="specialty.html" class="active">家乡特产</a></li>
+                    <li class="nav-item"><a href="intangible.html">非遗文化</a></li>
+                    <li class="nav-item"><a href="message.html">留言互动</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="main">
+        <div class="container">
+            <section class="specialty-header">
+                <h1 class="specialty-title">平舆特产 - 芝麻飘香 匠心臻品</h1>
+                <p class="specialty-subtitle">以白芝麻为魂的特色物产，传承百年的工艺，是家乡最地道的味道</p>
+            </section>
+
+            <div class="specialty-list">
+                <!-- 1 平舆白芝麻 -->
+                <div class="specialty-card">
+                    <img src="images/specialty/specialty_01.jpg" alt="平舆白芝麻" class="specialty-img zoom-img" data-src="images/specialty/specialty_01.jpg">
+                    <div class="specialty-info">
+                        <h3 class="specialty-name">平舆白芝麻</h3>
+                        <div class="specialty-rating" data-rating="5">★★★★★</div>
+                        <p class="specialty-desc">平舆县地标核心特产，中国白芝麻之乡的金字招牌。平舆白芝麻籽粒饱满、色泽洁白如玉、皮薄肉厚，含油率高达55%以上，蛋白质与维生素E含量丰富。此地土壤疏松肥沃、气候温润，种出的白芝麻口感香醇无苦涩，是国家地理标志保护产品，更是制作芝麻酱、香油的上等原料，畅销全国乃至海外。</p>
+                    </div>
+                </div>
+
+                <!-- 2 平舆白芝麻酱 -->
+                <div class="specialty-card">
+                    <img src="images/specialty/specialty_02.jpg" alt="平舆白芝麻酱" class="specialty-img zoom-img" data-src="images/specialty/specialty_02.jpg">
+                    <div class="specialty-info">
+                        <h3 class="specialty-name">平舆白芝麻酱</h3>
+                        <div class="specialty-rating" data-rating="5">★★★★★</div>
+                        <p class="specialty-desc">选用平舆优质白芝麻为原料，经古法小火慢炒、石磨低速研磨制成，无任何添加剂与防腐剂。磨制出的白芝麻酱质地细腻柔滑，色泽乳白，芝麻原香浓郁醇厚，口感绵密不腻。可拌面、抹馍、凉拌菜，营养易吸收，是平舆人家中常备的调味佳品，更是馈赠亲友的特色好物。</p>
+                    </div>
+                </div>
+
+                <!-- 3 白芝麻香油 -->
+                <div class="specialty-card">
+                    <img src="images/specialty/specialty_03.jpg" alt="白芝麻香油" class="specialty-img zoom-img" data-src="images/specialty/specialty_03.jpg">
+                    <div class="specialty-info">
+                        <h3 class="specialty-name">白芝麻香油</h3>
+                        <div class="specialty-rating" data-rating="5">★★★★★</div>
+                        <p class="specialty-desc">平舆白芝麻香油采用传统水代法工艺制作，历经筛选、清洗、翻炒、磨浆、晃油等多道工序提炼而成。成品香油清澈透亮、色泽金黄，开盖后芝麻醇香扑鼻，香味持久不散。凉拌提鲜、热菜增香、煲汤调味皆宜，纯物理压榨保留营养，是纯天然的调味圣品，远近闻名。</p>
+                    </div>
+                </div>
+
+                <!-- 4 平舆芝麻馓子 -->
+                <div class="specialty-card">
+                    <img src="images/specialty/specialty_04.jpg" alt="平舆芝麻馓子" class="specialty-img zoom-img" data-src="images/specialty/specialty_04.jpg">
+                    <div class="specialty-info">
+                        <h3 class="specialty-name">平舆芝麻馓子</h3>
+                        <div class="specialty-rating" data-rating="4">★★★★☆</div>
+                        <p class="specialty-desc">平舆经典传统糕点，以优质面粉、白芝麻香油、白芝麻粒为主要原料，经和面、醒面、搓条、盘条、拉抻、油炸制成。成品馓子金黄酥脆、细如发丝，入口嘎嘣作响，满口芝麻香，甜咸适中，久放不回潮。逢年过节，平舆人家都会制作芝麻馓子，既是待客小食，也是走亲访友的特色点心。</p>
+                    </div>
+                </div>
+
+                <!-- 5 庙湾松花蛋 -->
+                <div class="specialty-card">
+                    <img src="images/specialty/specialty_05.jpg" alt="庙湾松花蛋" class="specialty-img zoom-img" data-src="images/specialty/specialty_05.jpg">
+                    <div class="specialty-info">
+                        <h3 class="specialty-name">庙湾松花蛋</h3>
+                        <div class="specialty-rating" data-rating="5">★★★★★</div>
+                        <p class="specialty-desc">平舆县庙湾镇的名特产，距今已有百年历史，采用本地放养鸭蛋为原料，以传统无铅工艺腌制而成。成品松花蛋蛋壳易剥，蛋清呈琥珀色，晶莹剔透，蛋黄溏心流油，内里松花纹理清晰，口感鲜香软糯，无涩味无腥味。凉拌松花蛋是平舆餐桌上的经典凉菜，风味独特，老少皆宜。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 版权+联系方式占位 完整保留 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-contact">
+             <p>联系方式：电话：18288889999</p>
+                <p>邮箱：pingyu_home@example.com</p>
+                <p>地址：河南省驻马店市平舆县</p>
+                <p>官方资讯：<a href="https://www.pingyu.gov.cn/" target="_blank" title="打开平舆县人民政府官网">平舆县人民政府官网</a></p>
+            </div>
+            <div class="footer-copyright">
+                © 2025 我的家乡 - 平舆县 版权所有 | 设计者：24030232034李旭
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top">↑</div>
+
+    <!-- 图片放大模态框 -->
+    <div class="image-modal">
+        <span class="close-modal">×</span>
+        <img class="modal-content" src="" alt="放大图片">
+    </div>
+
+    <!-- 引入JS -->
+    <script src="js/common.js"></script>
+    <script src="js/specialty.js"></script>
+</body>
+</html>
